@@ -15,7 +15,7 @@ Add app Gradle dependency:
 
 ```groovy
 dependencies {
-	implementation 'com.github.ViduraPrasangana:ButtonGroup:Tag'
+	implementation 'com.github.ViduraPrasangana:ButtonGroup:1.0.2'
 }
 ```
 Add project Gradle dependency:

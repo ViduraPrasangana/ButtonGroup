@@ -7,19 +7,19 @@
     android:gravity="center"
     android:background="@drawable/blurry_abstract_background_mobile">
 
-    <com.hunteralex.buttongroup.ButtonGroup
+    <com.hunteralex.buttonsgroup.ButtonGroup
         android:id="@+id/buttonGroup1"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         app:buttonHeight="50dp"
         android:layout_marginBottom="30dp"/>
-    <com.hunteralex.buttongroup.ButtonGroup
+    <com.hunteralex.buttonsgroup.ButtonGroup
         android:id="@+id/buttonGroup2"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
         app:buttonHeight="50dp"
         android:layout_marginBottom="30dp"/>
-    <com.hunteralex.buttongroup.ButtonGroup
+    <com.hunteralex.buttonsgroup.ButtonGroup
         android:id="@+id/buttonGroup3"
         android:layout_width="296dp"
         android:layout_height="wrap_content"

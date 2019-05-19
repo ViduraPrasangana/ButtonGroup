@@ -1,4 +1,4 @@
-package com.hunteralex.buttongroup;
+package com.hunteralex.buttonsgroup;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -45,7 +45,9 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
 
     private OnItemClickListener onItemClickListener = null;
 
-    private final int ANIMATION_DURATION = 50;
+    private final int ANIMATION_DURATION_IN = 50;
+    private final int ANIMATION_DURATION_OUT = 200;
+
 
     private int backgroundColor;
     private int textColor;
@@ -235,12 +237,12 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
         Drawable drNew = getDrawable(buttonItem, backgroundColorFocus, borderColorFocus);
         tr = new TransitionDrawable(new Drawable[]{drOld, drNew});
         buttonItem.getView().setBackground(tr);
-        tr.startTransition(ANIMATION_DURATION);
+        tr.startTransition(ANIMATION_DURATION_IN);
     }
 
     private void unFocus(ButtonItem buttonItem) {
         if (tr != null) {
-            tr.reverseTransition(ANIMATION_DURATION);
+            tr.reverseTransition(ANIMATION_DURATION_OUT);
         } else {
             Drawable drNew = getDrawable(buttonItem, backgroundColor, borderColor);
             buttonItem.getView().setBackground(drNew);

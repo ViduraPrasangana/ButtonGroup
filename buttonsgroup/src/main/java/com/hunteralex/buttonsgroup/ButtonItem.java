@@ -1,4 +1,4 @@
-package com.hunteralex.buttongroup;
+package com.hunteralex.buttonsgroup;
 
 import android.content.Context;
 import android.view.LayoutInflater;

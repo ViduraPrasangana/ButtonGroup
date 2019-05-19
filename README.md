@@ -41,7 +41,7 @@ allprojects {
 Create Button Group in activity xml file
 XML Code
 ```xml
-<com.hunteralex.buttongroup.ButtonGroup
+<com.hunteralex.buttonsgroup.ButtonGroup
         android:id="@+id/buttonGroup1"
         android:layout_width="300dp"
         android:layout_height="wrap_content"

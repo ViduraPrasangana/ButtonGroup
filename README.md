@@ -23,6 +23,28 @@ arrayList.add("Last");
 ButtonGroup buttonGroup = findViewById(R.id.buttonGroup1);
 buttonGroup.addButtons(arrayList);
 ```
+
+#### Click Event
+JAVA code
+```java
+buttonGroup.setOnItemClickListener(new ButtonGroup.OnItemClickListener() {
+            @Override
+            public void OnItemClickListener(int position) {
+                switch (position){
+                    case 0:
+                        Toast.makeText(getBaseContext(),"First",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        Toast.makeText(getBaseContext(),"Middle",Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getBaseContext(),"Last",Toast.LENGTH_SHORT).show();
+                        break;
+                }
+            }
+        });
+```
+
 ## Customization
 #### Attributes
 

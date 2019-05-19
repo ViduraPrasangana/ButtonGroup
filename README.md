@@ -1,5 +1,7 @@
 # ButtonGroup
 
+![Button Group Demo](demo/buttonGroup.gif)
+
 ## Installation
 
 ## Usage

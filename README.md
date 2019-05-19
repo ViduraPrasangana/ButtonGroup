@@ -3,6 +3,32 @@
 ![Button Group Demo](demo/buttonGroup.gif)
 
 ## Installation
+#### Gradle
+Add app Gradle dependency:
+
+```groovy
+dependencies {
+	implementation 'com.github.ViduraPrasangana:ButtonGroup:Tag'
+}
+```
+Add project Gradle dependency:
+```groovy
+allprojects {
+        repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+#### Maven
+```xml
+<dependency>
+        <groupId>com.github.ViduraPrasangana</groupId>
+	<artifactId>ButtonGroup</artifactId>
+        <version>Tag</version>
+</dependency>
+```
 
 ## Usage
 Create Button Group in activity xml file

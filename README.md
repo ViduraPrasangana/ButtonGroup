@@ -44,5 +44,5 @@ It is possible to customize the buttons applying the following options:
 All of these attribetes can be assigned dynamically through java code.
 
 ## Contributor
-Vidura Prasangana
+Vidura Prasangana,
 Undergraduate,Department of ComputerSience and Engineering ,University of Moratuwa

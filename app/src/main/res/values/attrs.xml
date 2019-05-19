@@ -6,7 +6,7 @@
         <attr name="backgroundColor"      format="color"/>
         <attr name="fontColor"            format="color"/>
         <attr name="backgroundColorFocus" format="color"/>
-        <attr name="fontColorFocus"       format="color"/>
+        <attr name="borderColorFocus"       format="color"/>
         <attr name="borderColor"          format="color"/>
 
         <attr name="cornerRadius"         format="dimension"/>

@@ -4,14 +4,12 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.RectF;
+
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
-import android.graphics.drawable.ShapeDrawable;
+
 import android.graphics.drawable.TransitionDrawable;
-import android.graphics.drawable.shapes.RoundRectShape;
+
 import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
@@ -21,6 +19,7 @@ import android.view.MotionEvent;
 import android.widget.LinearLayout;
 import android.view.View;
 import android.widget.RelativeLayout;
+
 
 import java.util.ArrayList;
 
@@ -33,7 +32,6 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
         protected static final int BACKGROUND_COLOR = R.color.gray;
         protected static final int TEXT_COLOR = R.color.white;
         protected static final int BACKGROUND_COLOR_FOCUS = R.color.dark;
-        protected static final int TEXT_COLOR_FOCUS = R.color.white;
         protected static final int BORDER_COLOR = R.color.dark;
 
 
@@ -52,7 +50,7 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
     private int backgroundColor;
     private int textColor;
     private int backgroundColorFocus;
-    private int textColorFocus;
+    private int borderColorFocus;
     private int borderColor;
 
     private float cornerRadius;
@@ -89,7 +87,7 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
                 this.backgroundColor = attributes.getColor(R.styleable.ButtonGroupOptions_backgroundColor, ContextCompat.getColor(context, Default.BACKGROUND_COLOR));
                 this.textColor = attributes.getColor(R.styleable.ButtonGroupOptions_fontColor, ContextCompat.getColor(context, Default.TEXT_COLOR));
                 this.backgroundColorFocus = attributes.getColor(R.styleable.ButtonGroupOptions_backgroundColorFocus, ContextCompat.getColor(context, Default.BACKGROUND_COLOR_FOCUS));
-                this.textColorFocus = attributes.getColor(R.styleable.ButtonGroupOptions_fontColorFocus, ContextCompat.getColor(context, Default.TEXT_COLOR_FOCUS));
+                this.borderColorFocus = attributes.getColor(R.styleable.ButtonGroupOptions_borderColorFocus, ContextCompat.getColor(context, Default.BORDER_COLOR));
                 this.borderColor = attributes.getColor(R.styleable.ButtonGroupOptions_borderColor, ContextCompat.getColor(context, Default.BORDER_COLOR));
 
                 this.borderVisibility = attributes.getBoolean(R.styleable.ButtonGroupOptions_borderVisibility, Default.BORDER_VISIBILITY);
@@ -103,6 +101,78 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
                 attributes.recycle();
             }
         }
+    }
+
+    public int getBackgroundColor() {
+        return backgroundColor;
+    }
+
+    public void setBackgroundColor(int backgroundColor) {
+        this.backgroundColor = backgroundColor;
+    }
+
+    public int getTextColor() {
+        return textColor;
+    }
+
+    public void setTextColor(int textColor) {
+        this.textColor = textColor;
+    }
+
+    public int getBackgroundColorFocus() {
+        return backgroundColorFocus;
+    }
+
+    public void setBackgroundColorFocus(int backgroundColorFocus) {
+        this.backgroundColorFocus = backgroundColorFocus;
+    }
+
+    public int getBorderColor() {
+        return borderColor;
+    }
+
+    public void setBorderColor(int borderColor) {
+        this.borderColor = borderColor;
+    }
+
+    public int getBorderColorFocus() {
+        return borderColorFocus;
+    }
+
+    public void setBorderColorFocus(int borderColorFocus) {
+        this.borderColorFocus = borderColorFocus;
+    }
+
+    public float getCornerRadius() {
+        return cornerRadius;
+    }
+
+    public void setCornerRadius(float cornerRadius) {
+        this.cornerRadius = cornerRadius;
+    }
+
+    public float getTextSize() {
+        return textSize;
+    }
+
+    public void setTextSize(float textSize) {
+        this.textSize = textSize;
+    }
+
+    public boolean isBorderVisibility() {
+        return borderVisibility;
+    }
+
+    public void setBorderVisibility(boolean borderVisibility) {
+        this.borderVisibility = borderVisibility;
+    }
+
+    public float getButtonHeight() {
+        return buttonHeight;
+    }
+
+    public void setButtonHeight(float buttonHeight) {
+        this.buttonHeight = buttonHeight;
     }
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
@@ -144,7 +214,6 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
 
     @Override
     public void onClick(View v) {
-
         notifyItemClick(buttonsContainer.indexOfChild(v));
     }
 
@@ -154,19 +223,16 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             focus(allButtons.get(buttonsContainer.indexOfChild(v)));
-
         } else if (event.getAction() == MotionEvent.ACTION_UP) {
-
             unFocus(allButtons.get(buttonsContainer.indexOfChild(v)));
-
         }
-        return true;
+        return false;
     }
 
 
     private void focus(ButtonItem buttonItem) {
         Drawable drOld = buttonItem.getView().getBackground();
-        Drawable drNew = getDrawable(buttonItem, backgroundColorFocus, textColor);
+        Drawable drNew = getDrawable(buttonItem, backgroundColorFocus, borderColorFocus);
         tr = new TransitionDrawable(new Drawable[]{drOld, drNew});
         buttonItem.getView().setBackground(tr);
         tr.startTransition(ANIMATION_DURATION);
@@ -176,13 +242,13 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
         if (tr != null) {
             tr.reverseTransition(ANIMATION_DURATION);
         } else {
-            Drawable drNew = getDrawable(buttonItem, backgroundColor, textColor);
+            Drawable drNew = getDrawable(buttonItem, backgroundColor, borderColor);
             buttonItem.getView().setBackground(drNew);
         }
     }
 
     @SuppressLint("ResourceType")
-    private Drawable getDrawable(ButtonItem buttonItem, int backgroundColor, int textColor) {
+    private Drawable getDrawable(ButtonItem buttonItem, int backgroundColor, int borderColor) {
         GradientDrawable gradientDrawable = makeShape(buttonItem);
         gradientDrawable.setColor(backgroundColor);
         buttonItem.getText().setTextColor(textColor);
@@ -196,7 +262,9 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
 
     private GradientDrawable makeShape(ButtonItem buttonItem) {
         GradientDrawable gr = new GradientDrawable();
-        if (isFirst(buttonItem)) {
+        if (isOnly()) {
+            gr.setCornerRadii(new float[]{cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius, cornerRadius});
+        } else if (isFirst(buttonItem)) {
             gr.setCornerRadii(new float[]{cornerRadius, cornerRadius, cornerRadius, cornerRadius, 0, 0, 0, 0});
         } else if (isLast(buttonItem)) {
             gr.setCornerRadii(new float[]{0, 0, 0, 0, cornerRadius, cornerRadius, cornerRadius, cornerRadius});
@@ -205,6 +273,10 @@ public class ButtonGroup extends LinearLayout implements View.OnClickListener, V
         }
         return gr;
 
+    }
+
+    private boolean isOnly() {
+        return strings.size() == 1;
     }
 
     private boolean isFirst(ButtonItem buttonItem) {

@@ -18,8 +18,21 @@ public class MainActivity extends AppCompatActivity {
         arrayList.add("Middle");
         arrayList.add("Last");
 
-        ButtonGroup buttonGroup = findViewById(R.id.buttonGroup);
+        ArrayList<String> arrayList1 = new ArrayList<>();
+        arrayList1.add("First");
+
+        ArrayList<String> arrayList2 = new ArrayList<>();
+        arrayList2.add("First");
+        arrayList2.add("Last");
+
+
+
+        ButtonGroup buttonGroup = findViewById(R.id.buttonGroup1);
         buttonGroup.addButtons(arrayList);
+        ButtonGroup buttonGroup1 = findViewById(R.id.buttonGroup2);
+        buttonGroup1.addButtons(arrayList1);
+        ButtonGroup buttonGroup2 = findViewById(R.id.buttonGroup3);
+        buttonGroup2.addButtons(arrayList2);
 
         buttonGroup.setOnItemClickListener(new ButtonGroup.OnItemClickListener() {
             @Override

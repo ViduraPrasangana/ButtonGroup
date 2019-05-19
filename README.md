@@ -2,6 +2,7 @@
 [![](https://jitpack.io/v/ViduraPrasangana/ButtonGroup.svg)](https://jitpack.io/#ViduraPrasangana/ButtonGroup)
 
 Android extention libary of button group
+
 ![Button Group Demo](demo/buttonGroup.gif)
 
 ## Installation

@@ -1,5 +1,5 @@
 # ButtonGroup
-
+[![](https://jitpack.io/v/ViduraPrasangana/ButtonGroup.svg)](https://jitpack.io/#ViduraPrasangana/ButtonGroup)
 ![Button Group Demo](demo/buttonGroup.gif)
 
 ## Installation

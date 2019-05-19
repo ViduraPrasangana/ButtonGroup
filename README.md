@@ -1,6 +1,41 @@
 # ButtonGroup
+[![](https://jitpack.io/v/ViduraPrasangana/ButtonGroup.svg)](https://jitpack.io/#ViduraPrasangana/ButtonGroup)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![dependencies Status](https://david-dm.org/boennemann/badges/status.svg)](https://david-dm.org/boennemann/badges)
+[![star this repo](http://githubbadges.com/star.svg?user=ViduraPrasangana&repo=ButtonGroup&style=flat)](https://github.com/ViduraPrasangana/ButtonGroup)
+[![fork this repo](http://githubbadges.com/fork.svg?user=ViduraPrasangana&repo=ButtonGroup&style=flat)](https://github.com/ViduraPrasangana/ButtonGroup/fork)
+
+Android extention libary of button group
+
+![Button Group Demo](demo/buttonGroup.gif)
 
 ## Installation
+#### Gradle
+Add app Gradle dependency:
+
+```groovy
+dependencies {
+	implementation 'com.github.ViduraPrasangana:ButtonGroup:Tag'
+}
+```
+Add project Gradle dependency:
+```groovy
+allprojects {
+        repositories {
+		...
+		maven { url 'https://jitpack.io' }
+	}
+}
+```
+
+#### Maven
+```xml
+<dependency>
+        <groupId>com.github.ViduraPrasangana</groupId>
+	<artifactId>ButtonGroup</artifactId>
+        <version>Tag</version>
+</dependency>
+```
 
 ## Usage
 Create Button Group in activity xml file

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="ButtonGroupOptions">
+        <attr name="buttonHeight" format="dimension"/>
+
+        <attr name="backgroundColor"      format="color"/>
+        <attr name="fontColor"            format="color"/>
+        <attr name="backgroundColorFocus" format="color"/>
+        <attr name="fontColorFocus"       format="color"/>
+        <attr name="borderColor"          format="color"/>
+
+        <attr name="cornerRadius"         format="dimension"/>
+
+        <attr name="borderVisibility"     format="boolean"/>
+
+        <attr name="android:textSize"/>
+    </declare-styleable>
+</resources>

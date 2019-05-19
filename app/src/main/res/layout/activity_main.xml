@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@drawable/blurry_abstract_background_mobile">
+
+    <com.hunteralex.buttongroup.ButtonGroup
+        android:id="@+id/buttonGroup"
+        android:layout_width="296dp"
+        android:layout_height="340dp"
+        app:buttonHeight="50dp" />
+
+</LinearLayout>
